@@ -50,6 +50,22 @@ let countOdds = (low, high) => {
   return odds.length;
 };
 
+// My second solution does not encounter a runtime error. I believe this is the case because I have essentially combined the two primary functions of my previous solution
+// With this version, I am no longer creating two different arrays to store my information. Looking at the problem, the only thing that really matters is how many odd numbers occur between two given integers,
+// in that case, it makes more sense to store that count in a variable, iterate through the numbers just like we did before and increment each time an odd number is iterated over with our modulus operator
+
+let countOdds2 = (low, high) => {
+  let num = 0;
+
+  for (let i = low; i <= high; i++) {
+    if (i % 2 == 1) {
+      num++;
+    }
+  }
+
+  return num;
+};
+
 /*
 This file includes a method to 
     - create an array of all numbers between two given values
