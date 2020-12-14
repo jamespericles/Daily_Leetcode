@@ -9,6 +9,7 @@
         arr[i] > arr[i+1] > ... > arr[arr.length - 1]
     Given an integer array arr that is guaranteed to be a mountain, return any i such that arr[0] < arr[1] < ... arr[i - 1] < arr[i] > arr[i + 1] > ... > arr[arr.length - 1].
 
+    https://leetcode.com/problems/peak-index-in-a-mountain-array/
 */
 
 let arr = [0, 1, 0]; // should output 1
