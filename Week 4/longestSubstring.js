@@ -8,6 +8,7 @@
 let s = "abcabcbb"; // should output 3
 
 let lengthOfLongestSubstring = (s) => {
+  // create an array from our given string and sort it to make comparison easier. Create a variable where we'll push unique characters to
   let sArr = s.split("").sort(),
     output = [];
 
