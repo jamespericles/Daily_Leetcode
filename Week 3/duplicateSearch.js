@@ -20,7 +20,7 @@ let findDuplicate = (nums) => {
   let results = [];
 
   for (let i = 0; i < nums.length - 1; i++) {
-    // if the number we are currently viewing and the next number are the same, store in in our results variable
+    // if the number we are currently viewing and the next number are the same, store it in our results variable
     if (nums[i + 1] == nums[i]) {
       results.push(nums[i]);
     }
