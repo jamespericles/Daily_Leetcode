@@ -16,20 +16,23 @@
 */
 
 let IP = "192.168.01.1";
-//   IP6 = "2001:0db8:85a3:0000:0000:8a2e:0370:7334";
+let IP6 = "2001:0db8:85a3:0000:0000:8a2e:03704:7334";
 
 let validIPAddress = (IP) => {
-  // first check, determine if the IP address is IPv4 or IPv6. Biggest difference between the two is the seperator being a '.' or ':' respectively
-  if (IP.includes(".") === true) {
-    // the checks for both IPv4 and IPv6 are different, if the string contains a '.', use the appropriate IPv4 checks
+  let arr = [];
 
-    // split the IP for the appropriate IPv4 checks (which differ from the IPv6 checks)
-    let splitIP4 = IP.split(".");
+  // split the given string. If it contains a ',' then it will be passed into the IPv4 function, otherwise it'll be split at the ':' and be passed into IPv6
+  arr = IP.split(".");
+  if (arr.length == 1) {
+    arr = IP.split(":");
+  }
 
-    for (let i = 0; i < splitIP4.length; i++) {
-      let current = splitIP4[i];
+  // function for IPv4 credentials
+  const IPv4 = () => {
+    for (let i = 0; i < arr.length; i++) {
+      let current = arr[i];
       // check if there is an empty bit in the address
-      if (splitIP4[i].length == 0) {
+      if (arr[i].length == 0) {
         return "Neither";
       }
       // check for negative numbers
@@ -57,38 +60,52 @@ let validIPAddress = (IP) => {
       }
     }
     return "IPv4";
-  } else if (IP.includes(":") === true) {
-    let splitIP6 = IP.split(":");
+  };
 
+  // function for IPv6 credentials
+  const IPv6 = () => {
     for (let i = 0; i < 8; i++) {
-      let current = splitIP6[i];
+      let current = arr[i];
 
-      // check if there is an empty bit
+      // if current bit is empty
       if (current.length == 0) {
         return "Neither";
       }
 
-      // check if any bit is longer than 4
-      if (current.length > 4) {
-        return "Neither";
-      }
-
-      // check if any bit contains a negative number
+      // if current bit is a negative number
       if (current[0] == "-") {
         return "Neither";
       }
 
-      // loop through chunk and check if there are any letters that aren't a-f, or A-F
-      for (let j = 0; j < current.length; j++) {
-        let char = current.charCodeAt(t);
-        if ((char >= 103 && char <= 122) || (char >= 71 && char <= 90)) {
+      // if current bit is more than four digits
+      if (current.length > 4) {
+        return "Neither";
+      }
+
+      // if current bit contains a letter that isnt a-f or A-F
+      for (let t = 0; t < current.length; t++) {
+        let code = current.charCodeAt(t);
+        if ((code >= 103 && code <= 122) || (code >= 71 && code <= 90)) {
           return "Neither";
         }
       }
-      return "IPv6";
     }
+
+    return "IPv6";
+  };
+
+  // if there are more than four bits in the array after splitting, it can't be IPv4
+  if (arr.length == 4) {
+    return IPv4(arr);
+  }
+
+  // if there are more than eight bits in the array after splitting, it can't be IPv6
+  if (arr.length == 8) {
+    return IPv6(arr);
   } else {
-    // if the IP doesn't contain either a '.' or ':', then it is neither IPv4 or IPv6
+    // if the IP doesn't contain either a '.' or ':', or its length isn't either 4 or 8 bits long, then it is neither IPv4 or IPv6
     return "Neither";
   }
 };
+
+// After refactoring, this is fairly efficient boasting faster than 95.71% other solutions and less memory than 76.69% of other solutions
