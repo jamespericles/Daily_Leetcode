@@ -22,7 +22,6 @@ let validIPAddress = (IP) => {
   // first check, determine if the IP address is IPv4 or IPv6. Biggest difference between the two is the seperator being a '.' or ':' respectively
   if (IP.includes(".") === true) {
     // the checks for both IPv4 and IPv6 are different, if the string contains a '.', use the appropriate IPv4 checks
-    console.log("IP Address contains a period, it isn't IP6");
 
     // split the IP for the appropriate IPv4 checks (which differ from the IPv6 checks)
     let splitIP4 = IP.split(".");
@@ -57,10 +56,37 @@ let validIPAddress = (IP) => {
         return "Neither";
       }
     }
-
     return "IPv4";
   } else if (IP.includes(":") === true) {
     let splitIP6 = IP.split(":");
+
+    for (let i = 0; i < 8; i++) {
+      let current = splitIP6[i];
+
+      // check if there is an empty bit
+      if (current.length == 0) {
+        return "Neither";
+      }
+
+      // check if any bit is longer than 4
+      if (current.length > 4) {
+        return "Neither";
+      }
+
+      // check if any bit contains a negative number
+      if (current[0] == "-") {
+        return "Neither";
+      }
+
+      // loop through chunk and check if there are any letters that aren't a-f, or A-F
+      for (let j = 0; j < current.length; j++) {
+        let char = current.charCodeAt(t);
+        if ((char >= 103 && char <= 122) || (char >= 71 && char <= 90)) {
+          return "Neither";
+        }
+      }
+      return "IPv6";
+    }
   } else {
     // if the IP doesn't contain either a '.' or ':', then it is neither IPv4 or IPv6
     return "Neither";
