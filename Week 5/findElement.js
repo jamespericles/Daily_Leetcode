@@ -44,3 +44,39 @@ let searchRange = (nums, target) => {
     return [-1, -1];
   }
 };
+
+/**
+ * More optimal solution, with a time complexity of O(logN) and constant space complexity
+ * Below is a tweak of a binary search. After finding the target, we can forget about the half of the list that occurred before or after the target,
+ * depending on which pointer found the target.
+ */
+let searchRange = (nums, target) => {
+  const findNum = (nums, target, direction = "left") => {
+    let left = 0;
+    let right = nums.length - 1;
+    let result = -1;
+    let mid;
+
+    while (left <= right) {
+      mid = left + Math.floor((right - left) / 2);
+
+      if (nums[mid] > target) {
+        right = mid - 1;
+      } else if (nums[mid] === target) {
+        result = mid;
+
+        if (direction === "left") {
+          right = mid - 1; // findLast occurance, we can safely ignore all right side after we found target
+        } else {
+          left = mid + 1; // findLast occurance, we can safely ignore all left side after we found target
+        }
+      } else {
+        left = mid + 1;
+      }
+    }
+
+    return result;
+  };
+
+  return [findNum(nums, target, "left"), findNum(nums, target, "right")];
+};
