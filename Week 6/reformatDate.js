@@ -72,7 +72,7 @@ let reformatDate = (date) => {
       formattedArr[1] = "12";
       break;
   }
-
+  // similar to the first switch statement, here we're evaluating what the day is and converting from 1st -> 01 and so on
   switch (formattedArr[2]) {
     case "1st":
       formattedArr[2] = "01";
