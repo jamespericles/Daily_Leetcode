@@ -18,11 +18,11 @@ let head = [1, 1, 2]; // should return [1,2]
 
 let deleteDuplicates = (head) => {
   if (!head) return null;
-  // Init prev as 1st node, next as 2nd node
+  // prev is the first node, next as 2nd node
   let prev = head,
     next = head.next;
 
-  // Iterate until next is null, which is end of list
+  // Iterate until next is null
   while (next) {
     if (prev.val === next.val) {
       // If next is a duplicate, skip over it by pointing its prev to its next
