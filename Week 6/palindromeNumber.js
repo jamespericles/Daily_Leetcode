@@ -29,10 +29,6 @@ let isPalindrome = (x) => {
     let str = x.toString();
     let reverseStr = str.split("").reverse().join("");
     // if str and reverseStr are the same, then they are palindromes
-    if (str === reverseStr) {
-      return true;
-    } else {
-      return false;
-    }
+    return str === reverseStr;
   }
 };
