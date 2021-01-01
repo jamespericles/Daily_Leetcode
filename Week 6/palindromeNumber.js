@@ -23,7 +23,7 @@ let isPalindrome = (x) => {
   // a valid negative number can never be a palindrome, so lets first check if our number is negative to save space and time
   if (Math.sign(x) === -1) {
     return false;
-    // if the integer is positive, create two strings to be compares
+    // if the integer is positive, create two strings to be compared
   } else {
     // str is our number, reverserStr is our number reversed
     let str = x.toString();
