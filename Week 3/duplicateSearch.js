@@ -25,7 +25,6 @@ let findDuplicate = (nums) => {
       results.push(nums[i]);
     }
   }
-  console.log(!results);
   // specifically return the zeroth index rather than the entire array because 1. we should only have one number anyway and 2. leetcode wasn't an answer with a type of integer
   return results[0];
 };
