@@ -28,7 +28,7 @@
 let sentence = "i love eating burger",
   searchWord = "burg";
 
-let prefix = (sentence, searchWord) => {
+let prefixSearch = (sentence, searchWord) => {
   // convert our string into an array to search through
   const words = sentence.split(" ");
 
