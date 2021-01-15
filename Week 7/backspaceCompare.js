@@ -66,4 +66,23 @@ let backspaceCompare = (S, T) => {
 
 // this is incredibly inefficient. I'm going to blame that on a lack of coffee in my apartment and refactor when I'm more rested
 
-// iterate and count number of hashes, delete based on that number
+let backspaceCompare = (S, T) => {
+  return backSpace(S) == backSpace(T);
+};
+
+function backSpace(s) {
+  const queue = s.split("");
+  const stack = [];
+  while (queue.length) {
+    const c = queue.shift();
+    if (c == "#") {
+      stack.pop();
+    } else {
+      stack.push(c);
+    }
+  }
+  return stack.join("");
+}
+// more efficient stack and queue solution
+
+// another idea: iterate and count number of hashes, delete based on that number
