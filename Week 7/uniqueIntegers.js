@@ -51,4 +51,38 @@ let sumZero = (n) => {
 
 /*
     I'm really happy with this one, faster than 93.55% of solutions and less space than 53.10%. I think this is a great solution
+
+    I enjoyed this one so much I'm going to refactor it to try and improve upon it
+*/
+
+let sumZero = (n) => {
+  let output = [],
+    x = 1;
+
+  if (n % 2 !== 0) {
+    output.push(0);
+  }
+
+  /*
+    Very similar to the first attempt, but there's no need to create a variable to store the inserts needed, we can simply
+    compare the length of output to n. We'll exit the while loop when output's length is equal to n, accomplishing the same thing
+    and saving some memory.
+
+    We also don't need the help function, we can run the same logic and push 0 into our output first, then move on with the rest
+    of the function's logic, saving even more space for ourselves.  
+  */
+
+  while (output.length < n) {
+    output.push(x);
+    output.push(-Math.abs(x));
+    x++;
+  }
+
+  return output;
+};
+
+/* 
+    This refactor slightly decreased the efficiency, bringing us down to being faster than only 80.40% of solutions, but decreased the space by a third roughly.
+    It is important to note that there is always slight variability in the speed and space measurements, I believe in relation to my internet speed.
+    I say that as this refactored solution should be both faster and use less speed. 
 */
