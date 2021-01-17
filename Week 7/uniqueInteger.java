@@ -22,7 +22,6 @@ class Solution {
         // create an ArrayList variable because n could be any value from 1 to 1000
         ArrayList<Integer> output = new ArrayList<Integer>();
         int x = 1;
-        int negativeX = (~(x - 1));
 
         // if n is an odd number, add 0 before adding any symmetrical pairs
         if (n % 2 != 0) {
@@ -34,9 +33,8 @@ class Solution {
 
         while (output.size() < n) {
             output.add(x);
-            output.add(negativeX);
+            output.add(-Math.abs(x));
             x++;
-            negativeX--;
         }
 
         // our function is expected to return an array of integers so we need to convert
