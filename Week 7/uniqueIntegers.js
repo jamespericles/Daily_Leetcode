@@ -68,7 +68,7 @@ let sumZero = (n) => {
     compare the length of output to n. We'll exit the while loop when output's length is equal to n, accomplishing the same thing
     and saving some memory.
 
-    We also don't need the help function, we can run the same logic and push 0 into our output first, then move on with the rest
+    We also don't need the helper function, we can run the same logic and push 0 into our output first, then move on with the rest
     of the function's logic, saving even more space for ourselves.  
   */
 
@@ -84,5 +84,5 @@ let sumZero = (n) => {
 /* 
     This refactor slightly decreased the efficiency, bringing us down to being faster than only 80.40% of solutions, but decreased the space by a third roughly.
     It is important to note that there is always slight variability in the speed and space measurements, I believe in relation to my internet speed.
-    I say that as this refactored solution should be both faster and use less speed. 
+    I say that as this refactored solution should be both faster and use less space. 
 */
