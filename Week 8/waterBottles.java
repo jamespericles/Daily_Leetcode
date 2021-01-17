@@ -24,6 +24,22 @@
 
 class Solution {
     public int numWaterBottles(int numBottles, int numExchange) {
+        int drank = numBottles;
+        int empty = 0;
 
+        while (numBottles >= numExchange) {
+            empty = numBottles % numExchange;
+            numBottles = (int) Math.floor(numBottles / numExchange);
+            drank += numBottles;
+            numBottles += empty;
+        }
+
+        return drank;
     }
 }
+
+/*
+ * Not the craziest practice given how similar this solution is to my JavaScript
+ * one, but this version has some fantastic performance stats! Faster than 100%
+ * of other solutions, and less memory than 85.08%
+ */
