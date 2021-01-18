@@ -51,4 +51,6 @@ let findNumbers = (nums) => {
 
 /* 
       This refactor is slightly better, runtime of 88ms (faster than 25.15%) and 38.8mb (less than 93.63%)
+
+      *** EDIT: I ran submitted both versions, it seems the first is much faster but less efficient on space, the opposite is true for the second solution.
 */
