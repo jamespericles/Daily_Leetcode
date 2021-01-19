@@ -39,3 +39,20 @@ class Solution {
  * stats are are runtime of 157ms (faster than 5.81%) and memory usage of 37.9mb
  * (less than 20.78%). Obviously still more to learn but exciting nonetheless.
  */
+
+class Solution {
+    public int lengthOfLastWord(String s) {
+        String str = s.trim();
+        int len = str.length();
+        i = len - 1;
+
+        while (i >= 0 && str[i] != " ")
+            i--;
+        return len - 1 - i;
+    }
+}
+
+/**
+ * I recreated my better performing JavaScript solution hoping the stats would
+ * improve, interestingly they're almost identical to my previous Java solution.
+ */
