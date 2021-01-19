@@ -12,6 +12,11 @@
  * https://leetcode.com/problems/length-of-last-word/
  */
 
+/**
+ * @param {string} s
+ * @return {number}
+ */
+
 class Solution {
     public int lengthOfLastWord(String s) {
         // first check if the string only contains white space. If it does, return 0
