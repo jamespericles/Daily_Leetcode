@@ -56,3 +56,22 @@ class Solution {
  * I recreated my better performing JavaScript solution hoping the stats would
  * improve, interestingly they're almost identical to my previous Java solution.
  */
+
+class Solution {
+    public int lengthOfLastWord(String s) {
+        var len = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) != ' ') {
+                len++;
+            } else if (len > 0) {
+                return len;
+            }
+        }
+        return len;
+    }
+}
+
+/**
+ * Above is not my solution but I want to include it because it has a runtime of
+ * 0ms and only requires 37.6mb of memory. Its a very simple reverse iteration
+ */
