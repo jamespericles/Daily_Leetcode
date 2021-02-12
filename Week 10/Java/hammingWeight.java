@@ -31,5 +31,32 @@ public class Solution {
 
 /**
  * Not the greatest statistics here unfortunately. Runtime of 20ms (faster than
- * 6.39%) and memory usgae of 38.1mb (less than 9.69%)
+ * 6.39%) and memory usage of 38.1mb (less than 9.69%)
+ */
+
+public class Solution {
+    public int hammingWeight(int n) {
+        String binary = Integer.toBinaryString(n);
+        String ones = binary.replace("0", "");
+        int count = 0;
+        char one = '1';
+
+        for (int i = 0; i < binary.length(); i++) {
+            char c = binary.charAt(i);
+            System.out.println(c);
+            if (Character.compare(c, one) == 0) {
+                count += 1;
+            }
+        }
+        return count;
+    }
+}
+
+/**
+ * I thought about the above solution in my sleep last night and wanted to give
+ * it a try. The idea was that if I first remove all the zeroes before looping
+ * through the binary, that it may improve my performance. That proved to be
+ * slightly true (this solution bumped me up a roughly 28 percentile on memory
+ * usage). Runtime of 21ms (faster than 6.39%) and memory usage of 37.7mb (less
+ * than 37.37%)
  */
