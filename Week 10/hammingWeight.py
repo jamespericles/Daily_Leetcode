@@ -34,3 +34,13 @@ class Solution:
 
 # Minor drop in runtime efficiency but a huge jump in memory efficiency. Runtime of
 # 32ms (faster than 75.66%) and memory usage of 14.3mb (less than 43.36%)
+
+
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        binary = bin(n).replace('0', '')
+
+        return len(binary) - 1
+
+# Similar to the final Java solution but this solution comes with a much larger improvement
+# to the statistics. Runtime of 28ms (less than 90.52%) and memory usage of 14.2mb (less than 71.73%)
