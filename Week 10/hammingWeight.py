@@ -20,3 +20,17 @@ class Solution:
 # I love trying the same solutions using different languages. This solution had
 # significantly better results than Java or JS. Runtime of 28ms (faster than 90.52%)
 # and memory usage of 14.3mb (less than 7.97%)
+
+
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        binary = bin(n).replace('0', '')
+        count = 0
+
+        for char in binary:
+            if (char == '1'):
+                count += 1
+        return count
+
+# Minor drop in runtime efficiency but a huge jump in memory efficiency. Runtime of
+# 32ms (faster than 75.66%) and memory usage of 14.3mb (less than 43.36%)
