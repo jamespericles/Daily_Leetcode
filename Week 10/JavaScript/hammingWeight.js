@@ -36,9 +36,9 @@ let hammingWeight = (n) => {
 
   let ones = binary.replace("0", "");
 
-  for (let i = 0; i < binary.length; i++) {
-    console.log(binary[i]);
-    if (binary[i] == 1) {
+  for (let i = 0; i < ones.length; i++) {
+    console.log(ones[i]);
+    if (ones[i] == 1) {
       count += 1;
     }
   }

@@ -36,8 +36,7 @@ public class Solution {
 
 public class Solution {
     public int hammingWeight(int n) {
-        String binary = Integer.toBinaryString(n);
-        String ones = binary.replace("0", "");
+        String binary = Integer.toBinaryString(n).replace("0", "");
         int count = 0;
         char one = '1';
 
